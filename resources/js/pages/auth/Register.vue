@@ -12,16 +12,13 @@ import { store } from '@/routes/register';
 import { Form, Head } from '@inertiajs/vue3';
 import { ref } from 'vue';
 
-// Réactif pour le consentement
 const consentChecked = ref(false);
 const consentSubmitted = ref(false);
 
-// Gestion de la soumission du formulaire
 const handleSubmit = (e: Event) => {
     if (!consentChecked.value) {
         e.preventDefault();
         consentSubmitted.value = true;
-        // Scroll vers le champ de consentement
         const consentElement = document.getElementById('consent');
         consentElement?.scrollIntoView({ behavior: 'smooth', block: 'center' });
         consentElement?.focus();
@@ -101,7 +98,6 @@ const handleSubmit = (e: Event) => {
                     <InputError :message="errors.password_confirmation" />
                 </div>
 
-                <!-- Champ optionnel pour le mot de passe admin -->
                 <div class="grid gap-2">
                     <div class="p-4 bg-amber-50 dark:bg-amber-950 border border-amber-200 dark:border-amber-800 rounded-lg">
                         <Label for="admin_password" class="text-amber-800 dark:text-amber-200">
@@ -123,7 +119,6 @@ const handleSubmit = (e: Event) => {
                     </div>
                 </div>
 
-                <!-- Case à cocher pour le consentement explicite -->
                 <div class="grid gap-2 pt-2" id="consent">
                     <div class="flex items-start space-x-2 p-4 bg-gray-50 dark:bg-gray-900 rounded-lg border">
                         <Checkbox

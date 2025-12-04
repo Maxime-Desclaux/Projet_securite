@@ -9,12 +9,10 @@ class Animal extends Model
 {
     use HasFactory;
 
-    // Assumer que la table `animals` existe et contient ces colonnes (adapter si besoin)
     protected $fillable = [
         'name',
         'description',
         'image',
-        // The DB uses `type` for category (chat/chien/oiseau). Keep species as legacy.
         'type',
         'species',
     ];

@@ -61,9 +61,7 @@ withDefaults(
         
         <div class="flex w-full items-center justify-center lg:grow">
             <main class="w-full max-w-6xl">
-                <!-- Hero Section -->
                 <div class="grid lg:grid-cols-2 gap-12 items-center">
-                    <!-- Left Content -->
                     <div class="space-y-8">
                         <div>
                             <h1 class="text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white leading-tight">
@@ -78,7 +76,6 @@ withDefaults(
                             </p>
                         </div>
                         
-                        <!-- Stats -->
                         <div class="grid grid-cols-3 gap-4">
                             <div class="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg">
                                 <div class="text-3xl font-bold text-blue-600 dark:text-blue-400">1,500+</div>
@@ -94,7 +91,6 @@ withDefaults(
                             </div>
                         </div>
                         
-                        <!-- CTA Buttons -->
                         <div class="flex flex-col sm:flex-row gap-4">
                             <Link
                                 :href="login()"
@@ -110,9 +106,7 @@ withDefaults(
                         </div>
                     </div>
                     
-                    <!-- Right Content - Animal Cards -->
                     <div class="relative">
-                        <!-- Main Card -->
                         <div class="relative overflow-hidden rounded-3xl shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-500">
                             <img 
                                 src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
@@ -146,7 +140,6 @@ withDefaults(
                     </div>
                 </div>
                 
-                <!-- Features Section -->
                 <div class="mt-24 grid md:grid-cols-3 gap-8">
                     <div class="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
                         <div class="w-14 h-14 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center mb-6">
@@ -187,7 +180,6 @@ withDefaults(
             </main>
         </div>
         
-        <!-- Footer -->
         <footer class="mt-16 w-full max-w-6xl border-t border-gray-200 dark:border-gray-700 pt-8">
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <div class="flex items-center gap-2 mb-4 md:mb-0">

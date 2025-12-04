@@ -16,7 +16,6 @@ class CreateNewUser implements CreatesNewUsers
     {
         $isAdmin = $this->isAdminEmail($input['email']);
         
-        // Règles de validation de base
         $validationRules = [
             'name' => ['required', 'string', 'max:255'],
             'email' => [
@@ -29,7 +28,6 @@ class CreateNewUser implements CreatesNewUsers
             'password' => $this->passwordRules(),
         ];
 
-        // Ajouter la validation du mot de passe admin si nécessaire
         if ($isAdmin) {
             $validationRules['admin_password'] = ['required', 'string'];
         }
@@ -45,7 +43,6 @@ class CreateNewUser implements CreatesNewUsers
             }
         })->validate();
 
-        // Créer l'instance manuellement et utiliser save()
         $user = new User();
         $user->name = $input['name'];
         $user->email = $input['email'];

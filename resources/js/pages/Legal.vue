@@ -1,6 +1,5 @@
 <template>
   <div class="legal-container">
-    <!-- Navigation Header MÊME FORMAT QUE PRIVACY.VUE -->
     <div class="navigation-header">
       <button @click="handleBack" class="back-button">
         <svg class="back-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
@@ -35,7 +34,7 @@
           <p><strong>Nom du site :</strong> SPA Animaux</p>
           <p><strong>Statut :</strong> Projet pédagogique</p>
           <p><strong>Formation :</strong> Développement Web Full Stack</p>
-          <p><strong>Établissement :</strong> [Nom de ton école]</p>
+          <p><strong>Établissement :</strong> EFREI</p>
           <p><strong>Année scolaire :</strong> 2023-2024</p>
         </div>
       </section>
@@ -43,8 +42,8 @@
       <section class="section">
         <h2>2. Directeur de publication</h2>
         <div class="info-card">
-          <p><strong>Nom :</strong> [Ton Prénom Nom]</p>
-          <p><strong>Qualité :</strong> Étudiant en développement web</p>
+          <p><strong>Nom :</strong> Maxime Desclaux, Florine Saidi, Wilhem Ho</p>
+          <p><strong>Qualité :</strong> Étudiants en développement web</p>
           <p><strong>Email :</strong> 
             <a href="mailto:contact@spa-animaux.fr">contact@spa-animaux.fr</a>
           </p>
@@ -55,8 +54,8 @@
         <h2>3. Hébergement</h2>
         <div class="info-card">
           <p><strong>Hébergeur :</strong> [OVH / Heroku / Railway / etc.]</p>
-          <p><strong>Adresse :</strong> [Adresse de l'hébergeur]</p>
-          <p><strong>Téléphone :</strong> [Numéro de l'hébergeur]</p>
+          <p><strong>Adresse :</strong> directeur@spa.fr</p>
+          <p><strong>Téléphone :</strong> 07 68 48 02 10</p>
           <p><strong>Site web :</strong> 
             <a href="https://www.ovh.com" target="_blank">https://www.ovh.com</a>
           </p>
@@ -119,38 +118,17 @@
       </section>
 
       <section class="section">
-        <h2>7. Cookies</h2>
-        <div class="cookie-box">
-          <p>
-            Ce site utilise uniquement des cookies techniques strictement nécessaires 
-            à son fonctionnement :
-          </p>
-          <ul>
-            <li><strong>Cookies de session :</strong> Pour la gestion de l'authentification</li>
-            <li><strong>Cookies de préférences :</strong> Pour mémoriser vos paramètres</li>
-          </ul>
-          <p>
-            Aucun cookie de tracking ou de publicité n'est utilisé sur ce site.
-          </p>
-        </div>
-      </section>
-
-      <section class="section">
-        <h2>8. Crédits</h2>
+        <h2>7. Crédits</h2>
         <div class="credits-box">
-          <p><strong>Développement :</strong> [Ton Prénom Nom]</p>
-          <p><strong>Design :</strong> [Ton nom ou "Équipe SPA Animaux"]</p>
+          <p><strong>Développement :</strong> Maxime Desclaux, Florine Saidi, Wilhem Ho</p>
+          <p><strong>Design :</strong> Équipe SPA Animaux</p>
           <p><strong>Icônes :</strong> Font Awesome / Material Icons</p>
-          <p><strong>Images d'animaux :</strong> 
-            <a href="https://unsplash.com" target="_blank">Unsplash</a> 
-            (licence libre)
-          </p>
           <p><strong>Police d'écriture :</strong> Google Fonts (Open Sans, Roboto)</p>
         </div>
       </section>
 
       <section class="section">
-        <h2>9. Contact</h2>
+        <h2>8. Contact</h2>
         <div class="contact-box">
           <p>
             Pour toute question concernant ces mentions légales, vous pouvez nous contacter :
@@ -170,7 +148,6 @@
         </p>
       </div>
 
-      <!-- BOUTON RETOUR EN HAUT -->
       <div class="scroll-top">
         <button @click="scrollToTop">⬆️ Retour en haut</button>
       </div>
@@ -192,7 +169,6 @@ export default {
   },
   methods: {
     handleBack() {
-      // Même logique que privacy.vue
       const isAuthenticated = this.checkAuthentication()
       
       if (isAuthenticated) {
@@ -203,7 +179,6 @@ export default {
     },
     
     checkAuthentication() {
-      // Même méthode que privacy.vue
       const token = localStorage.getItem('auth_token')
       const sessionToken = sessionStorage.getItem('auth_token')
       const cookies = document.cookie.split(';').some(cookie => 
@@ -225,7 +200,6 @@ export default {
 </script>
 
 <style scoped>
-/* STYLES DE LA NAVIGATION HEADER (MÊME QUE PRIVACY.VUE) */
 .legal-container {
   min-height: 100vh;
   background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
@@ -290,7 +264,6 @@ export default {
   color: #a0aec0;
 }
 
-/* STYLES DU HERO (MÊME FORMAT QUE PRIVACY.VUE) */
 .legal-hero {
   max-width: 1200px;
   margin: 0 auto 3rem;
@@ -329,7 +302,6 @@ export default {
   backdrop-filter: blur(10px);
 }
 
-/* CONTENT AREA (STYLES EXISTANTS) */
 .content {
   max-width: 1200px;
   margin: 0 auto;

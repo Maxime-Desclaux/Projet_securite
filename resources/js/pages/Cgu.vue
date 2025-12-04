@@ -19,13 +19,6 @@
       <p class="cgu-subtitle">
         Les règles d'utilisation du site SPA Animaux
       </p>
-      <div class="last-updated">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-          <circle cx="12" cy="12" r="10" stroke-width="1.5"/>
-          <path d="M12 6v6l4 2" stroke-width="1.5" stroke-linecap="round"/>
-        </svg>
-        En vigueur au : {{ currentDate }}
-      </div>
     </div>
 
     <div class="content">
@@ -86,7 +79,6 @@
         <div class="account-rules">
           <h3>3.1 Conditions d'inscription</h3>
           <ul>
-            <li>Être âgé d'au moins 13 ans</li>
             <li>Fournir une adresse email valide</li>
             <li>Choisir un nom d'utilisateur approprié</li>
             <li>Créer un mot de passe sécurisé (12 caractères minimum)</li>
@@ -359,7 +351,6 @@ export default {
   },
   methods: {
     handleBack() {
-      // Même logique que privacy.vue et legal.vue
       const isAuthenticated = this.checkAuthentication()
       
       if (isAuthenticated) {
@@ -370,7 +361,6 @@ export default {
     },
     
     checkAuthentication() {
-      // Même méthode que privacy.vue
       const token = localStorage.getItem('auth_token')
       const sessionToken = sessionStorage.getItem('auth_token')
       const cookies = document.cookie.split(';').some(cookie => 
@@ -388,7 +378,6 @@ export default {
 </script>
 
 <style scoped>
-/* STYLES DE LA NAVIGATION HEADER (MÊME QUE PRIVACY.VUE) */
 .cgu-container {
   min-height: 100vh;
   background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
@@ -453,7 +442,6 @@ export default {
   color: #a0aec0;
 }
 
-/* STYLES DU HERO (MÊME FORMAT QUE PRIVACY.VUE) */
 .cgu-hero {
   max-width: 1200px;
   margin: 0 auto 3rem;
@@ -492,7 +480,6 @@ export default {
   backdrop-filter: blur(10px);
 }
 
-/* CONTENT AREA (STYLES EXISTANTS) */
 .content {
   max-width: 1200px;
   margin: 0 auto;

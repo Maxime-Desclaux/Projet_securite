@@ -27,12 +27,10 @@ Route::middleware(['auth', 'verified', 'admin'])
 
 require __DIR__.'/settings.php';
 
-// Route pour récupérer la liste des animaux (utilisateurs authentifiés via session)
 Route::get('/animals', [AnimalController::class, 'index'])
     ->middleware(['auth'])
     ->name('animals.index');
 
-// Pages légales via Inertia (frontend Vue)
 Route::get('/legal', function () {
     return Inertia::render('Legal');
 })->name('legal');

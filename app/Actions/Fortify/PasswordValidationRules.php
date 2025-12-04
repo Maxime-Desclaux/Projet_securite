@@ -24,9 +24,7 @@ trait PasswordValidationRules
         ];
     }
 
-    /**
-     * Custom validation rule to ensure password meets at least 3 of 4 complexity criteria.
-     */
+    
     protected function passwordComplexityRule(): ValidationRule
     {
         return new class implements ValidationRule
@@ -37,35 +35,30 @@ trait PasswordValidationRules
                 $criteriaMet = 0;
                 $missingCriteria = [];
 
-                // Check for uppercase letters
                 if (preg_match('/[A-Z]/', $password)) {
                     $criteriaMet++;
                 } else {
                     $missingCriteria[] = 'majuscules';
                 }
 
-                // Check for lowercase letters
                 if (preg_match('/[a-z]/', $password)) {
                     $criteriaMet++;
                 } else {
                     $missingCriteria[] = 'minuscules';
                 }
 
-                // Check for numbers
                 if (preg_match('/[0-9]/', $password)) {
                     $criteriaMet++;
                 } else {
                     $missingCriteria[] = 'chiffres';
                 }
 
-                // Check for special characters
                 if (preg_match('/[^A-Za-z0-9]/', $password)) {
                     $criteriaMet++;
                 } else {
                     $missingCriteria[] = 'caractères spéciaux';
                 }
 
-                // Require at least 3 of 4 criteria
                 if ($criteriaMet < 3) {
                     $needed = 3 - $criteriaMet;
                     $message = 'Le mot de passe doit contenir au moins 3 des 4 critères suivants : majuscules, minuscules, chiffres, caractères spéciaux. ';

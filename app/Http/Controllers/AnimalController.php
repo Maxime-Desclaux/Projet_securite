@@ -13,13 +13,10 @@ class AnimalController extends Controller
      */
     public function index(Request $request)
     {
-        // Allow optional filtering by species via query param ?species=chat|chien|oiseau
         $query = Animal::query();
 
-        // Accept either ?species=.. or ?type=.. from the frontend; database stores the value in `type`.
         $filter = $request->query('species') ?? $request->query('type');
         if (!empty($filter) && $filter !== 'all') {
-            // case-insensitive match on `type` column (avoid DB-specific backticks)
             $query->whereRaw('LOWER(type) = ?', [strtolower($filter)]);
         }
 

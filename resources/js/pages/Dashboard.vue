@@ -12,25 +12,21 @@ const breadcrumbs: BreadcrumbItem[] = [
     },
 ];
 
-// Data
 const animals = ref<any[]>([]);
 const loading = ref(false);
 const error = ref<string | null>(null);
 const query = ref('');
 const typeFilter = ref('all');
 
-// Fetch animals from backend
 async function fetchAnimals() {
     loading.value = true;
     error.value = null;
     try {
-        // build URL with optional type filter
         const params = new URLSearchParams();
         if (typeFilter.value && typeFilter.value !== 'all') params.set('type', typeFilter.value);
     const url = params.toString() ? `/animals?${params.toString()}` : '/animals';
 
-        // debug URL in browser console
-        // eslint-disable-next-line no-console
+        
         console.debug('[Dashboard] fetch', url);
 
         const res = await fetch(url, {
@@ -53,12 +49,10 @@ async function fetchAnimals() {
 
 onMounted(fetchAnimals);
 
-// re-fetch when type filter changes
 watch(typeFilter, () => {
     fetchAnimals();
 });
 
-// Filtrage client-side par recherche uniquement
 const filtered = computed(() => {
     const q = query.value.trim().toLowerCase();
 
@@ -102,17 +96,14 @@ const filtered = computed(() => {
             </header>
 
             <section>
-                <!-- Loading -->
                 <div v-if="loading" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                     <div v-for="n in 6" :key="n" class="h-64 animate-pulse rounded-lg bg-gray-100 p-4" />
                 </div>
 
-                <!-- Erreur -->
                 <div v-else-if="error" class="rounded-lg border border-red-200 bg-red-50 p-4 text-sm text-red-700">
                     Erreur : {{ error }}
                 </div>
 
-                <!-- Liste des animaux -->
                 <div v-else>
                     <div v-if="filtered.length === 0" class="rounded-lg border p-6 text-center text-sm text-black">
                         Aucun animal trouvé.
@@ -121,7 +112,6 @@ const filtered = computed(() => {
                     <ul v-else class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
                         <li v-for="animal in filtered" :key="animal.id" class="group rounded-lg border p-4 hover:shadow-lg">
                             <div class="flex flex-col">
-                                <!-- Image: full-width, responsive max-height, object-contain to show entire image -->
                                 <div class="w-full overflow-hidden rounded-md bg-gray-50 flex items-center justify-center">
                                     <img
                                         v-if="animal.image"
@@ -135,7 +125,6 @@ const filtered = computed(() => {
                                     </div>
                                 </div>
 
-                                <!-- Content below image -->
                                 <div class="mt-4 flex flex-col">
                                     <div class="flex items-center justify-between">
                                         <h3 class="text-lg font-semibold">{{ animal.name }}</h3>

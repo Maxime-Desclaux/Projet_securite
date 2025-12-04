@@ -1,6 +1,5 @@
 <template>
   <div class="privacy-container">
-    <!-- Navigation Header -->
     <div class="navigation-header">
       <button @click="handleBack" class="back-button">
         <svg class="back-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
@@ -29,9 +28,7 @@
         </div>
       </div>
 
-      <!-- Content Sections -->
       <div class="content-sections">
-        <!-- Section 1 -->
         <section class="content-section">
           <div class="section-header">
             <div class="section-number">01</div>
@@ -54,7 +51,6 @@
           </div>
         </section>
 
-        <!-- Section 2 -->
         <section class="content-section">
           <div class="section-header">
             <div class="section-number">02</div>
@@ -91,7 +87,6 @@
           </div>
         </section>
 
-        <!-- Section 3 -->
         <section class="content-section">
           <div class="section-header">
             <div class="section-number">03</div>
@@ -148,7 +143,6 @@
           </div>
         </section>
 
-        <!-- Section 4 -->
         <section class="content-section">
           <div class="section-header">
             <div class="section-number">04</div>
@@ -180,7 +174,6 @@
           </div>
         </section>
 
-        <!-- Section 5 -->
         <section class="content-section">
           <div class="section-header">
             <div class="section-number">05</div>
@@ -204,7 +197,6 @@
           </div>
         </section>
 
-        <!-- Section 6 -->
         <section class="content-section">
           <div class="section-header">
             <div class="section-number">06</div>
@@ -246,7 +238,6 @@
           </div>
         </section>
 
-        <!-- Section 7 -->
         <section class="content-section">
           <div class="section-header">
             <div class="section-number">07</div>
@@ -292,39 +283,29 @@ export default {
   },
   methods: {
     handleBack() {
-      // Vérifier si l'utilisateur est connecté
       const isAuthenticated = this.checkAuthentication()
       
       if (isAuthenticated) {
-        // Si connecté, retour au dashboard
         this.$router.push('/dashboard')
       } else {
-        // Sinon, retour à l'accueil
         window.location.href = 'http://localhost:8000/'
       }
     },
     
     checkAuthentication() {
-      // Méthode pour vérifier si l'utilisateur est connecté
-      // À adapter selon ton système d'authentification
       
-      // 1. Vérifier le token dans localStorage
       const token = localStorage.getItem('auth_token')
       
-      // 2. Vérifier le token dans sessionStorage
       const sessionToken = sessionStorage.getItem('auth_token')
       
-      // 3. Vérifier le cookie d'authentification
       const cookies = document.cookie.split(';').some(cookie => 
         cookie.trim().startsWith('auth_token=')
       )
       
-      // 4. Vérifier si l'utilisateur a un état d'authentification dans le store Vuex
       if (this.$store && this.$store.state.auth && this.$store.state.auth.isAuthenticated) {
         return true
       }
       
-      // Retourne true si au moins une méthode indique une authentification
       return token || sessionToken || cookies
     }
   }
