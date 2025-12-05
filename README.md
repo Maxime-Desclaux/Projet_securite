@@ -67,7 +67,7 @@ Puis éditez `.env` pour configurer la connexion à la base de données :
     - DB_USERNAME=utilisateur
     - DB_PASSWORD=mot_de_passe
 
-- Une fichier .env contenant le mot de passe et le domaine admin vous serez envoyer pour créer un compte admin
+- Un fichier .env contenant le mot de passe et le domaine admin vous serez envoyer pour créer un compte admin
 
 Générez la clé d'application Laravel :
 
@@ -105,7 +105,7 @@ CREATE TABLE `animals` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 ```
 
-Une exportation de la bdd vous serez envoyer pour les même base de donnée
+Une exportation de la bdd vous serez envoyer pour avoir les mêmes données
 
 - ***
 
@@ -124,6 +124,9 @@ Ensuite ouvrez dans le navigateur :
 - http://127.0.0.1:8000
 
 ---
+## Création de compte Admin: 
+Le domaine de l’email admin et le mot de passe admin sont définis dans le fichier .env .Lors de l’inscription, si l’adresse e-mail correspond à ce domaine, un champ «admin password » s’affiche et l'admin doit entrer le code identique à celui du .env(MDP)  afin de créer un compte admin.
+Vous pouvez choisir votre mot de passe de connexion (12 caractères minimum, incluant une minuscule, une majuscule et un caractère spécial). Cependant, admin password doit être le même que celui défini dans le fichier .env afin de créer un compte admin.
 
 ## 7) Construction pour la production
 
